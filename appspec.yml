@@ -1,0 +1,18 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/AE200403/build/
+    overwrite: yes
+
+permissions:
+  - object: /
+    pattern: "**"
+    owner: AE200403
+    group: devadmin
+
+hooks:
+  AfterInstall:
+    - location: script/deploy.sh
+      timeout: 60
+      runas: AE200403
